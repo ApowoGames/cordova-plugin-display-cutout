@@ -1,6 +1,7 @@
 {
-  "name": "cordova-plugin-dispaly-cutout",
-  "version": "1.0.1",
+  "name": "@apowo/cordova-plugin-dispaly-cutout",
+  "version": "1.0.2",
+  "private":false,
   "cordova": {
     "id": "cordova-plugin-display-cutout",
     "platforms": [

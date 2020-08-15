@@ -1,26 +1,37 @@
 package com.apowo.tq.cutout;
 
-
-
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.LOG;
+import org.apache.cordova.PluginResult;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.os.Build;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.view.DisplayCutout;
 import android.view.WindowManager;
+import android.view.Window;
+import android.view.WindowInsets;
 
 public class CDVDisplayCutout extends CordovaPlugin {
+    private CallbackContext context;
+	private Activity activity;
+	private Window window;
+	
+
     @Override
-    public void execute (String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+    public boolean execute (String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+        context = callbackContext;
+        activity = this.cordova.getActivity();
+        window = activity.getWindow();
+
         if("setDisplayCutout".equals(action)){
             return setDisplayCutout(args,callbackContext);
-        }else if("getDisplayCutout"){
+        }else if("getDisplayCutout".equals(action)){
             return getDisplayCutout(args,callbackContext);
         }
 
@@ -34,17 +45,22 @@ public class CDVDisplayCutout extends CordovaPlugin {
 
         int mode = args.optInt(0);
 
-       cordova.getActivity().runOnUiThread(new Runnable(){
-           try{
-                WindowManager.LayoutParams lp = getWindow().getAttributes();
-                lp.LayoutInDisplayCutoutMode = mode;
+       activity.runOnUiThread(new Runnable(){
+           @Override
+           public void run(){
+            try{
+                    WindowManager.LayoutParams attr = window.getAttributes();
+                    attr.layoutInDisplayCutoutMode = mode;
 
-                getWindow().setAttributes(lp);
+                    window.setAttributes(attr);
 
-                callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
-           }catch(Exception e){
-               callbackContext.error(e.getMessage());
+                    callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
+            }catch(Exception e){
+                callbackContext.error(e.getMessage());
+            }
+
            }
+           
        });
 
         return true;
@@ -83,5 +99,10 @@ public class CDVDisplayCutout extends CordovaPlugin {
         });
        
         return true;
+    }
+
+    @TargetApi(23)
+    private WindowInsets getInsets() {
+        return this.webView.getView().getRootWindowInsets();
     }
 }

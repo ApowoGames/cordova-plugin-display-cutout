@@ -25,5 +25,6 @@
     "cutout",
     "ecosystem:cordova",
     "cordova-android"
-  ]
+  ],
+  "description": "Support display cutouts for Cordova"
 }

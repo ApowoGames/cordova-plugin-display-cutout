@@ -1,7 +1,29 @@
 {
   "name": "cordova-plugin-dispaly-cutout",
   "version": "1.0.1",
-  "main": "index.js",
-  "author": "Seven",
-  "license": "MIT"
+  "cordova": {
+    "id": "cordova-plugin-display-cutout",
+    "platforms": [
+      "android"
+    ]
+  },
+  "author": "Seven-Chen.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ApowoGames/cordova-plugin-dispaly-cutout.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ApowoGames/cordova-plugin-dispaly-cutout/issues"
+  },
+  "homepage": "https://github.com/ApowoGames/cordova-plugin-dispaly-cutout#readme",
+  "keywords": [
+    "cordova",
+    "android",
+    "fullscreen",
+    "notch",
+    "cutout",
+    "ecosystem:cordova",
+    "cordova-android"
+  ]
 }

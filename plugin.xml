@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="cordova-plugin-dispaly-cutout" version="1.0.2">
+        id="cordova-plugin-display-cutout" version="1.0.2">
     <name>DisplayCutout</name>
     <description>Cordova Plugin for display cutouts</description>
     <license>Apache 2.0</license>

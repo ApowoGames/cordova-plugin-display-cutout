@@ -1,6 +1,6 @@
 {
-  "name": "cordova-plugin-dispaly-cutout",
-  "version": "1.0.5",
+  "name": "cordova-plugin-display-cutout",
+  "version": "1.0.6",
   "private": false,
   "cordova": {
     "id": "cordova-plugin-display-cutout",
@@ -12,12 +12,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ApowoGames/cordova-plugin-dispaly-cutout.git"
+    "url": "git+https://github.com/ApowoGames/cordova-plugin-display-cutout.git"
   },
   "bugs": {
-    "url": "https://github.com/ApowoGames/cordova-plugin-dispaly-cutout/issues"
+    "url": "https://github.com/ApowoGames/cordova-plugin-display-cutout/issues"
   },
-  "homepage": "https://github.com/ApowoGames/cordova-plugin-dispaly-cutout#readme",
+  "homepage": "https://github.com/ApowoGames/cordova-plugin-display-cutout#readme",
   "keywords": [
     "cordova",
     "android",

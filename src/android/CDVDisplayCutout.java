@@ -71,6 +71,9 @@ public class CDVDisplayCutout extends CordovaPlugin {
             callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, 0));
             return true;
         }
+	    
+        boolean densityAdjusted = args.optBoolean(0);
+	    
         Activity activity = cordova.getActivity();
         activity.runOnUiThread(new Runnable(){
             @Override
@@ -79,7 +82,7 @@ public class CDVDisplayCutout extends CordovaPlugin {
                     final WindowInsets insets = getInsets();
                     final DisplayCutout cutout = insets.getDisplayCutout();
 
-                    float dens = 1 / activity.getResources().getDisplayMetrics().density;
+                    float dens = densityAdjusted ? 1 / activity.getResources().getDisplayMetrics().density : 1;
                     float bottom = cutout != null ? (cutout.getSafeInsetBottom() * dens) : 0; 
                     float left = cutout != null ? (cutout.getSafeInsetLeft() * dens) : 0; 
                     float right = cutout != null ? (cutout.getSafeInsetRight() * dens) : 0; 

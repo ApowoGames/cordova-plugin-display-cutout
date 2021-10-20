@@ -7,11 +7,17 @@ var DisplayCutout = {
   LAYOUT_IN_DISPLAY_CUTOUT_MODE_NEVER: 0x00000002,
   LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES: 0x00000001,
 
+  // Set the display cutout mode.
   setDisplayCutout: function (mode, success, error) {
     run(success, error, "DisplayCutouts", "setDisplayCutout", [mode || 0]);
   },
+  // Get the display coutout returning density adjusted pixels.
   getDisplayCutout: function (success, error) {
-    run(success, error, "DisplayCutouts", "getDisplayCutout");
+    run(success, error, "DisplayCutouts", "getDisplayCutout", true);
+  },
+  // Get the display coutout returning raw pixel values.
+  getDisplayCutoutUnadjusted: function (success, error) {
+    run(success, error, "DisplayCutouts", "getDisplayCutout", false);
   },
 };
 
